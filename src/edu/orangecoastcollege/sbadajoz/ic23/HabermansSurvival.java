@@ -2,6 +2,7 @@ package edu.orangecoastcollege.sbadajoz.ic23;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.text.DecimalFormat;
 import java.util.Scanner;
 
 /*
@@ -15,6 +16,7 @@ public class HabermansSurvival {
     public static void main(String[] args) {
         int nodes, maxS = Integer.MIN_VALUE, minNS = Integer.MAX_VALUE, countS = 0, countNS = 0;
         double avgS, avgNS, sumS = 0.0, sumNS = 0.0;
+        DecimalFormat twoDP = new DecimalFormat("0.##");
 
         try
         {
@@ -36,6 +38,10 @@ public class HabermansSurvival {
             }
             avgS = sumS / countS;
             avgNS = sumNS / countNS;
+            System.out.print("The surviving patient with the most nodes had " + maxS + " detected nodes" +
+                    "\nThe non-surviving patient with the least nodes had " + minNS + " detected nodes" +
+                    "\nThe average amount of nodes for a surviving patient was: " + twoDP.format(avgS )+ " nodes" +
+                    "\nThe average amount of nodes for a deceased patient was: " + twoDP.format(avgNS)+ " nodes");
         }
         catch (FileNotFoundException e)
         {
